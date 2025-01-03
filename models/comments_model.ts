@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
 export interface IComments {
-  content: string;
-  writer: mongoose.Schema.Types.ObjectId;
-  postId: mongoose.Schema.Types.ObjectId;
+  content: string;  
+  writer: string;
+  postId: string;
 }
 
 const commentsSchema = new mongoose.Schema<IComments>({
   writer: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   content: {
@@ -16,7 +16,7 @@ const commentsSchema = new mongoose.Schema<IComments>({
     required: true,
   },
   postId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "Posts",
     required: true,
   },
