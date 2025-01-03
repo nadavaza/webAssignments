@@ -27,16 +27,21 @@ import authController from "../controllers/auth_controller";
 *     User:
 *       type: object
 *       required:
+*         - name
 *         - email
 *         - password
 *       properties:
+*         name:
+*           type: string
+*           description: The user's name
 *         email:
 *           type: string
-*           description: The user email
+*           description: The user's email
 *         password:
 *           type: string
-*           description: The user password
+*           description: The user's password
 *       example:
+*         name: 'Bob'
 *         email: 'bob@gmail.com'
 *         password: '123456'
 */
@@ -176,6 +181,12 @@ router.post("/logout", authController.logout);
  *     description: Delete user and invalidate the refresh token
  *     tags:
  *       - Auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -186,6 +197,6 @@ router.post("/logout", authController.logout);
  *       500:
  *         description: Server error
  */
-router.delete("/", authController.deleteUser);
+router.delete("/delete", authController.deleteUser);
 
 export default router;

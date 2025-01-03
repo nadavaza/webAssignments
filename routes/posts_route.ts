@@ -113,9 +113,13 @@ router.get("/:id", postsController.getById.bind(postsController));
  *               content:
  *                 type: string
  *                 description: The content of the post
+ *               sender:
+ *                 type: string
+ *                 description: The sender of the post
  *             required:
  *               - title
  *               - content
+ *               - sender
  *     responses:
  *       201:
  *         description: Post created successfully
