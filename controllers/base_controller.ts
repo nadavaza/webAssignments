@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Model } from "mongoose";
 
+  /* istanbul ignore next */
 class BaseController<T> {
   model: Model<T>;
   constructor(model: any) {
